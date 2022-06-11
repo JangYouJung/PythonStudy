@@ -1,15 +1,22 @@
-stack = []
-k = int(input())
 
-for i in range(k):
-    n = int(input())
-    if(n == 0):
-        stack.pop()
-    else:
-        stack.append(n)
+n = int(input())
 
-sum = 0
-for i in stack:
-    sum += i
+for n in range(n):
+    line = input()
+    vps = True
+    stack = []
+    for k in line:
+        if(k == '('):
+            stack.append('(')
+        else:
+            if not stack:
+                vps = False
+                break
+            elif(stack.pop(-1)!='('):
+                vps=False
+                break
     
-print(sum)
+    if stack: vps = False
+    
+    if(vps): print("YES")
+    else: print("NO")
